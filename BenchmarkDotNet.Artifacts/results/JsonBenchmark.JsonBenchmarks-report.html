@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>JsonBenchmark.JsonBenchmarks-20230117-184430</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.4, OS=Windows 10 (10.0.19045.2486)
+12th Gen Intel Core i7-12700K, 1 CPU, 20 logical and 12 physical cores
+.NET SDK=7.0.101
+  [Host]     : .NET 7.0.1 (7.0.122.56804), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.1 (7.0.122.56804), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                               Method</th><th>   Mean</th><th>  Error</th><th> StdDev</th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Serialization_Text_Newtonsoft_To_Small</td><td>71.99 &mu;s</td><td>0.270 &mu;s</td><td>0.239 &mu;s</td><td>7.5684</td><td>1.4648</td><td>-</td><td>97.07 KB</td>
+</tr><tr><td>Serialization_Text_Newtonsoft_To_Medium</td><td>7,521.22 &mu;s</td><td>33.141 &mu;s</td><td>27.674 &mu;s</td><td>375.0000</td><td>296.8750</td><td>-</td><td>9292.6 KB</td>
+</tr><tr><td>Serialization_Text_Newtonsoft_To_Large</td><td>910,780.19 &mu;s</td><td>11,162.418 &mu;s</td><td>10,441.333 &mu;s</td><td>39000.0000</td><td>38000.0000</td><td>1000.0000</td><td>935565.12 KB</td>
+</tr><tr><td>Serialization_Text_SystemTextJson_To_Small</td><td>31.92 &mu;s</td><td>0.128 &mu;s</td><td>0.120 &mu;s</td><td>3.4180</td><td>0.4883</td><td>-</td><td>44.22 KB</td>
+</tr><tr><td>Serialization_Text_SystemTextJson_To_Medium</td><td>4,391.48 &mu;s</td><td>15.249 &mu;s</td><td>14.264 &mu;s</td><td>7.8125</td><td>7.8125</td><td>7.8125</td><td>4395.59 KB</td>
+</tr><tr><td>Serialization_Text_SystemTextJson_To_Large</td><td>402,436.92 &mu;s</td><td>1,643.031 &mu;s</td><td>1,536.892 &mu;s</td><td>-</td><td>-</td><td>-</td><td>443470.55 KB</td>
+</tr><tr><td>Serialization_Text_SpanJson_To_Small</td><td>18.70 &mu;s</td><td>0.111 &mu;s</td><td>0.099 &mu;s</td><td>3.4180</td><td>0.4883</td><td>-</td><td>43.9 KB</td>
+</tr><tr><td>Serialization_Text_SpanJson_To_Medium</td><td>3,117.34 &mu;s</td><td>15.711 &mu;s</td><td>13.120 &mu;s</td><td>11.7188</td><td>11.7188</td><td>11.7188</td><td>4396.98 KB</td>
+</tr><tr><td>Serialization_Text_SpanJson_To_Large</td><td>227,991.88 &mu;s</td><td>2,005.815 &mu;s</td><td>1,876.240 &mu;s</td><td>-</td><td>-</td><td>-</td><td>443540.52 KB</td>
+</tr></tbody></table>
+</body>
+</html>
