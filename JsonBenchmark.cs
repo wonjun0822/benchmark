@@ -3,7 +3,10 @@ using BenchmarkDotNet.Attributes;
 
 namespace JsonBenchmark
 {
+    [RankColumn]
     [MemoryDiagnoser]
+    [ThreadingDiagnoser]
+    [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
     public class JsonBenchmarks
     {
         List<Person> to_small = Person.FakeData.Generate(100).ToList();
@@ -30,6 +33,13 @@ namespace JsonBenchmark
         public string Serialization_Text_SpanJson_To_Medium() => SpanJson.JsonSerializer.Generic.Utf16.Serialize(to_medium);
         [Benchmark]
         public string Serialization_Text_SpanJson_To_Large() => SpanJson.JsonSerializer.Generic.Utf16.Serialize(to_large);
+
+        [Benchmark]
+        public string Serialization_Text_FastJson_To_Small() => fastJSON.JSON.ToJSON(to_small);
+        [Benchmark]
+        public string Serialization_Text_FastJson_To_Medium() => fastJSON.JSON.ToJSON(to_medium);
+        [Benchmark]
+        public string Serialization_Text_FastJson_To_Large() => fastJSON.JSON.ToJSON(to_large);
     }
 
     public class Person
